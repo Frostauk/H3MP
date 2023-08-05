@@ -1082,7 +1082,7 @@ namespace H3MP
             CreateManagerObject();
 
             Client client = managerObject.AddComponent<Client>();
-            client.IP = config["IP"].ToString();
+            client.IP = Dns.GetHostAddresses(config["IP"].ToString())[0].ToString();
             client.port = (ushort)config["Port"];
 
             client.ConnectToServer();
