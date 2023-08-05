@@ -189,7 +189,7 @@ namespace H3MP.Scripts
             Mod.modInstance.CreateManagerObject();
 
             Client client = Mod.managerObject.AddComponent<Client>();
-            client.IP = Mod.config["IP"].ToString();
+            client.IP = Dns.GetHostAddresses(Mod.config["IP"].ToString())[0].ToString();
             client.port = (ushort)Mod.config["Port"];
 
             client.ConnectToServer();
